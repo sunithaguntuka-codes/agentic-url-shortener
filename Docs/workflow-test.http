@@ -1,0 +1,15 @@
+
+### Start a workflow
+POST http://localhost:8080/api/workflows
+Content-Type: application/json
+
+###
+
+### Get workflow status
+GET http://localhost:8080/api/workflows/24700
+
+###
+
+### Approve the shorten stage
+POST http://localhost:8080/api/workflows/24700/approve/shorten
+Content-Type: application/json
