@@ -36,3 +36,22 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Maven build output
+target/
+
+# Local H2 database
+data/
+*.mv.db
+*.trace.db
+
+# IntelliJ
+.idea/
+*.iml
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,97 @@
+id                                   stages
+--                                   ------
+67af7da5-cdc4-4784-9722-2d80b245b7fd {@{id=validate; name=Validate Request; dependsOn=System.Object[]; requiresApproval=False; status=SUCCEEDED; error=}, @{id=shorten; name=Shorten... 
+
+
+
+id                                   stages
+--                                   ------
+785bcccd-8e8d-4a95-9f85-b3dc05e5b411 {@{id=validate; name=Validate Request; dependsOn=System.Object[]; requiresApproval=False; status=SUCCEEDED; approved=False; error=}, @{id=short... 
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/workflows/785bcccd-8e8d-4a95-9f85-b3dc05e5b411/approve/shorten" -Method Post
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/workflows/785bcccd-8e8d-4a95-9f85-b3dc05e5b411" -Method Get | ConvertTo-Json -Depth 5
+
+
+ $result | Format-List
+
+
+originalUrl : https://www.google.com
+shortCode   : 5ddc7184
+shortUrl    : http://localhost:8080/5ddc7184
+
+Invoke-WebRequest `
+    -Uri $result.http://localhost:8080/5ddc7184 `
+    -MaximumRedirection 0 `
+    -UseBasicParsing `
+    -ErrorAction SilentlyContinue
+
+
+Invoke-RestMethod `
+    -Uri "http://localhost:8080/5ddc7184" `
+    -Method Get
+
+
+------------------------
+
+$result | Format-List
+
+
+originalUrl : https://www.google.com
+shortCode   : b76d159a
+shortUrl    : http://localhost:8080/b76d159a
+
+
+---------------------------------
+
+
+$body = @{ url = "https://www.google.com" } | ConvertTo-Json
+$result = Invoke-RestMethod -Uri "http://localhost:8080/api/shorten" -Method Post -ContentType "application/json" -Body $body
+$result | Format-List
+
+
+$result | Format-List
+
+
+shortUrl    : http://localhost:8080/02729f0c
+originalUrl : https://www.google.com        
+shortCode   : 02729f0c           
+
+---------------------
+With DB :
+
+URL Creation :
+$body = @{ url = "https://www.google.com" } | ConvertTo-Json
+$result = Invoke-RestMethod -Uri "http://localhost:8080/api/shorten" -Method Post -ContentType "application/json" -Body $body
+$result | Format-List
+
+https://www.linkedin.com/in/sunitha-guntuka-b4a26165/
+$body = @{ url = "https://www.linkedin.com/in/sunitha-guntuka-b4a26165/" } | ConvertTo-Json
+$result = Invoke-RestMethod -Uri "http://localhost:8080/api/shorten" -Method Post -ContentType "application/json" -Body $body
+$result | Format-List
+
+$result | Format-List
+
+shortCode   : 0GIsFY7
+originalUrl : https://www.google.com
+shortUrl    : http://localhost:8080/0GIsFY7
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/links/0GIsFY7" -Method Get | ConvertTo-Json
+
+Short URL created :
+PS C:\Users\sunitha guntuka\Documents\Sunitha\JavaProjects\URLShortener> $result | Format-List
+
+
+shortCode   : Wgi3oKl
+originalUrl : https://www.linkedin.com/in/sunitha-guntuka-b4a26165/
+shortUrl    : http://localhost:8080/Wgi3oKl
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/links/Wgi3oKl" -Method Get | ConvertTo-Json
+
+           
+
+
+
+
